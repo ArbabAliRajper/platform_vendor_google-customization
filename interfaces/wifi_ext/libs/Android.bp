@@ -52,10 +52,14 @@ cc_prebuilt_binary {
         srcs: ["vendor.google.wifi_ext@1.0-service-vendor"],
         init_rc: ["vendor.google.wifi_ext@1.0-service.rc"],
         relative_install_path: "hw",
-        shared_libs: [
-                "vendor.google.wifi_ext@1.0",
-                "libwifi-pex",
-        ],
+        target: {
+                android_arm64: {
+                    shared_libs: [
+                            "vendor.google.wifi_ext@1.0",
+                            "libwifi-pex",
+                    ],
+                },
+        },
         overrides: ["android.hardware.wifi@1.0-service"],
         vendor: true,
 }
